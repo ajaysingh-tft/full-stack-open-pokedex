@@ -13,3 +13,11 @@ jobs:
       - name: Say hello
         run: |
           echo "Hello World!"
+    steps:
+      - name: print date
+        run: |
+          date
+    steps:
+      - name: print curr dir
+        run: |
+          ls - list
