@@ -18,6 +18,10 @@ jobs:
         run: |
           date
     steps:
-      - name: print curr dir
+      - name: list dir
         run: |
           ls - list
+    steps:
+      - name: print dir length
+        run: |
+          ls -l
