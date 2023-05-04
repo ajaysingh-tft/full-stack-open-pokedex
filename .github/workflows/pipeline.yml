@@ -1,4 +1,4 @@
-name: Hello World!
+name: Deployment pipeline
 
 on:
   push:
@@ -7,21 +7,14 @@ on:
       # note that your "main" branch might be called main instead of master
 
 jobs:
-  hello_world_job:
+  simple_deployment_pipeline:
     runs-on: ubuntu-20.04
     steps:
-      - name: Say hello
-        run: |
-          echo "Hello World!"
-    steps:
-      - name: print date
-        run: |
-          date
-    steps:
-      - name: list dir
-        run: |
-          ls - list
-    steps:
-      - name: print dir length
-        run: |
-          ls -l
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - name: Install Dependencies
+        run: npm install
+      - name: Check style
+        run: npm run eslint
